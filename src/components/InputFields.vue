@@ -55,7 +55,6 @@ export default {
         };
 
         const handleKeyDown = () => {
-            console.log("called")
             calculateResponse();
         }
 
