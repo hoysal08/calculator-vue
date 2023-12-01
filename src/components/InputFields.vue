@@ -1,7 +1,7 @@
 <template>
-    <div class="calculator">
+    <div class="calculator" @keyup.enter="handleKeyDown()">
         <div class="input-area">
-            <input class="result" type="text" v-model="expression" />
+            <input class="result" type="text" v-model="expression"  />
         </div>
         <div class="button-grid">
             <button @click="addToExpression('7')">7</button>
@@ -22,7 +22,7 @@
             <button class="clear" @click="clearExpression()">C</button>
             <button @click="addToExpression('*')">*</button>
             <button @click="addToExpression('/')">/</button>
-            <button class="backspace" @click="backspace()">&#9003;</button> <!-- Backspace button -->
+            <button class="backspace" @click="backspace()">&#9003;</button>
         </div>
     </div>
 </template>
@@ -54,22 +54,21 @@ export default {
             }
         };
 
-        const handleKeyDown = (event) => {
-            if (event.key === "Enter") {
-                calculateResponse();
-            }
+        const handleKeyDown = () => {
+            console.log("called")
+            calculateResponse();
         }
 
-            return {
-                expression,
-                addToExpression,
-                clearExpression,
-                calculateResponse,
-                backspace,
-                handleKeyDown
-            };
-        },
-    }
+        return {
+            expression,
+            addToExpression,
+            clearExpression,
+            calculateResponse,
+            backspace,
+            handleKeyDown
+        };
+    },
+}
 </script>
   
 <style scoped>
